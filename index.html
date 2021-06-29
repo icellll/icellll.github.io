@@ -1,4 +1,119 @@
-<h1>icellll</h1>
-<br/>
-<h2>Hello World!</h2>
-1111
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>    首页
+ - 中华诗词</title>
+
+	<link rel="stylesheet" href="/static/css/shici.css" />
+
+	<script src="/static/js/jquery.min.js"></script>
+	<script src="/static/js/uikit.min.js"></script>
+	<script src="/static/js/components/autocomplete.js"></script>
+	<script src="/static/js/qrcode.min.js"></script>
+	<script src="/static/js/shici.js"></script>
+
+	 <!-- import here --> 	 <!-- css style here --> 	<script>
+
+$(function () {
+	createQRCode('515317351053093361');
+});
+
+</script>
+
+</head>
+<body style="margin-bottom: 100px;">
+	<div id="header" style="padding-top: 30px;">
+		<div class="uk-container uk-container-center">
+			<div class="uk-grid">
+				<div class="uk-width-2-10">
+					<h1><a href="/">中华诗词</a></h1>
+				</div>
+				<div class="uk-width-6-10 uk-margin-top">
+					<ul id="dynasties" class="uk-subnav">
+											<li id="dynasty-72057594037927936"><a href="/dynasty/72057594037927936">先秦</a></li>
+											<li id="dynasty-144115188075855872"><a href="/dynasty/144115188075855872">汉代</a></li>
+											<li id="dynasty-216172782113783808"><a href="/dynasty/216172782113783808">三国两晋</a></li>
+											<li id="dynasty-288230376151711744"><a href="/dynasty/288230376151711744">南北朝</a></li>
+											<li id="dynasty-360287970189639680"><a href="/dynasty/360287970189639680">隋代</a></li>
+											<li id="dynasty-432345564227567616"><a href="/dynasty/432345564227567616">唐代</a></li>
+											<li id="dynasty-504403158265495552"><a href="/dynasty/504403158265495552">宋代</a></li>
+											<li id="dynasty-576460752303423488"><a href="/dynasty/576460752303423488">元代</a></li>
+											<li id="dynasty-648518346341351424"><a href="/dynasty/648518346341351424">明代</a></li>
+											<li id="dynasty-720575940379279360"><a href="/dynasty/720575940379279360">清代</a></li>
+											<li id="dynasty-792633534417207296"><a href="/dynasty/792633534417207296">近现代</a></li>
+										</ul>
+				</div>
+				<div class="uk-width-2-10 uk-margin-top">
+					<form action="/search" class="uk-form">
+						<div class="uk-autocomplete uk-form-icon" data-uk-autocomplete="{source: '/api/suggest', minLength: 1, param: 'q', method: 'get'}">
+							<i class="uk-icon-search"></i>
+							<input id="q" name="q" type="text" maxlength="12">
+							<script type="text/autocomplete">
+								<ul class="uk-nav uk-nav-autocomplete uk-autocomplete-results">
+																{{~items}}<li data-value="{{ $item }}"><a href="/search?q={{ $item }}">{{ $item }}</a></li>{{/items}}								</ul>
+							</script>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<hr>
+	</div>
+
+	<div id="main" style="padding: 20px 0;">
+		<div class="uk-container uk-container-center">
+		
+<div class="uk-grid">
+	<div class="uk-width-2-3">
+		<ul class="uk-breadcrumb">
+			<li><a href="/">首页</a></li>
+			<li class="uk-active"><span>每日一诗</span></li>
+		</ul>
+		<div id="poem">
+			<h1>丑奴儿·采桑子</h1>
+			<h3>宋代 · 晏几道</h3>
+			<div><p>昭华凤管知名久。</p><p>长闭帘栊。</p><p>日日春慵。</p><p>闲倚庭花晕脸红。</p><p>应说金谷无人後，</p><p>此会相逢。</p><p>三弄临风。</p><p>送得当筵玉盏空。</p></div>
+		</div>
+		<p class="uk-text-small">
+			<a href="#0" onclick="printPoem()"><i class="uk-icon-print"></i> 打印</a>
+			&nbsp;&nbsp;
+			<a target="_blank" href="https://github.com/michaelliao/shici/wiki/%E7%BA%A0%E9%94%99"><i class="uk-icon-edit"></i> 纠错</a>
+		</p>
+		<div style="width: 270px; height: 394px; position: relative; background-image: url(/static/img/qrlink.png);">
+			<div id="qr-link" style="width: 128px; height: 128px; position: absolute; left: 71px; top: 117px; -ms-transform:rotate(45deg); -moz-transform: rotate(45deg); -o-transform: rotate(45deg); -webkit-transform: rotate(45deg); transform: rotate(45deg);"></div>
+		</div>
+	</div>
+	<div class="uk-width-1-3">
+		<h3><i class="uk-icon-graduation-cap"></i> 晏几道</h3>
+		<div><p>晏几道（约1048－1118）是晏殊的幼子，字叔原。宋代父子能词的不少，但父子俱为大家的却只有大晏和小晏，而小晏尤胜乃父。他身为富贵公子，却一生潦倒，原因就是因为太“痴”了。冯煦曾说过：“淮海（秦观）、小山（晏几道），真古之伤心人也。其淡语皆有味，浅语皆有致，求之两宋词人，实罕其匹。”晚年家境中落，生活贫困。他的词既继承了花间的精雕细琢、用色浓艳的特点，又接受了南唐白描影响。多写爱情、离别之作，带有感伤情调。著有《小山词》，存词260首。</p></div>
+	</div>
+</div>
+
+		</div>
+	</div>
+
+	<div id="footer" style="position:fixed; left: 0; right: 0; bottom: 0; height: 100px; background-color: #fff;">
+		<hr>
+		<div class="uk-container uk-container-center uk-text-small" style="padding-bottom: 30px">
+			<div class="uk-grid">
+				<div class="uk-width-1-6">
+					<p>中华诗词&copy;2018</p>
+				</div>
+				<div class="uk-width-4-6">
+					<p>中华诗词收录了上至先秦，下至当代共计六万余首诗词，完全免费并开放所有诗词内容和程序源代码，您可自由复制、修改、传播诗词内容和程序源码。如果您发现收录的诗词存在错误，请直接<a target="_blank" href="https://github.com/michaelliao/shici/wiki/%E7%BA%A0%E9%94%99">提交您的修改请求</a>。</p>
+				</div>
+				<div class="uk-width-1-6">
+					<p>
+						<a target="_blank" href="https://github.com/michaelliao/shici" class="uk-icon-button uk-icon-github"></a>
+						<a target="_blank" href="https://itunes.apple.com/cn/app/id539302164" class="uk-icon-button uk-icon-apple"></a>
+						<a target="_blank" href="https://weibo.com/liaoxuefeng" class="uk-icon-button uk-icon-weibo"></a>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
